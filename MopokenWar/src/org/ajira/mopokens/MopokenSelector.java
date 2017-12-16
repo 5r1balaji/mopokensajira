@@ -28,36 +28,42 @@ public class MopokenSelector implements BattleFixtures {
 	
 	@Override
 	public void organizeMopokens() {
-		Map<String,Mopokens> mySquad=BattleNominees.mySquad;
-		Adaptable adapt=new MopokenAdapter(BattleNominees.enemySquad);
-		for(String sd:mySquad.keySet()) {
-		     Mopokens opponent=adapt.match(mySquad.get(sd));
-		     fights.put(mySquad.get(sd), opponent);
+		Map<String,Mopokens> opponents=BattleNominees.enemySquad;
+		Adaptable adapt=new MopokenAdapter(BattleNominees.mySquad);
+		for(Map.Entry<String,Mopokens> m:opponents.entrySet()) {
+		     Mopokens myMopoken=adapt.match(m.getValue());
+		     fights.put(m.getValue(),myMopoken);
 		}
-		if(decideMatch(fights)) {
+		if(decideMatch(MopokenAdapter.deciderCount)) {
 			printResult();
 		}
 		else {
 			System.out.println("There are no chances of winning");
+			printResult();
 		}
 	}
 
 	
 
-	
-	
-	
-	
-
-	private boolean decideMatch(Map<Mopokens, Mopokens> fights) {
-		// TODO Auto-generated method stub
-		return false;
+	private boolean decideMatch(int count) {
+		
+		
+		if(count<3) {
+			return false;
+		}return true;
+		
 	}
 
 	
 	public void printResult() {
-		// TODO Auto-generated method stub
+		String output="";
 		
+		for(Map.Entry<Mopokens,Mopokens> m:fights.entrySet()) {
+			
+			output=output+m.getValue().getName()+"#"+m.getValue().getLevel()+";";
+			//output=output+m.getKey().getName()+m.getKey().getLevel()+":"+m.getValue().getName()+m.getValue().getLevel()+"\n";
+		}
+		System.out.println(output);
 	}
 	
 }

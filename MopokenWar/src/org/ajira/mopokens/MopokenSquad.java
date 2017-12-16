@@ -22,7 +22,7 @@ public class MopokenSquad implements BattleNominees{
 	public void parseMopokensList(String parseString,Map<String,Mopokens> mopokensMap){
 		String[] mopokens=parseString.split(";");
 		for(int i=0;i<mopokens.length;i++) {
-			String s[]=mopokens[0].split("#");
+			String s[]=mopokens[i].split("#");
 			mopokensMap.put(s[0],new Mopokens(s[0],Integer.parseInt(s[1])));
 		}
 		

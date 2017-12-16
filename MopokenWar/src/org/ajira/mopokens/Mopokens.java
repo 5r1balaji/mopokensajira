@@ -12,6 +12,10 @@ public class Mopokens {
 	public int getLevel() {
 		return level;
 	}
+	@Override
+	public String toString() {
+		return "Mopokens [name=" + name + ", level=" + level + "]";
+	}
 	public void setLevel(int level) {
 		this.level = level;
 	}
