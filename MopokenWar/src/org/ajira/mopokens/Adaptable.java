@@ -1,9 +1,9 @@
 package org.ajira.mopokens;
 
 public interface Adaptable {
-	public Mopokens getLevelAdvantage(Mopokens player);
-	 public Mopokens makeDraw(Mopokens player);
-	 public Mopokens getTypeAdvantage(Mopokens player);
+	public void getLevelAdvantage(Mopokens player);
+	 public void makeDraw(Mopokens player);
+	 public void getTypeAdvantage(Mopokens player);
 	 public Mopokens match(Mopokens mopoken);
-	 public Mopokens getWeakAdvantage(Mopokens opponent);
+	 public void getWeakAdvantage(Mopokens opponent);
 }

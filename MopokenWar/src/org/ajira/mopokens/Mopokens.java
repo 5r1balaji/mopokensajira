@@ -1,8 +1,8 @@
 package org.ajira.mopokens;
 
 public class Mopokens {
-	String name;
-	int level;
+	private String name;
+	private int level;
 	public String getName() {
 		return name;
 	}
