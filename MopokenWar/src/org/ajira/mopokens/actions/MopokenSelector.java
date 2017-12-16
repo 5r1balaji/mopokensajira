@@ -5,8 +5,11 @@ import java.util.Map;
 import org.ajira.mopokens.model.Mopokens;
 
 public class MopokenSelector implements BattleFixtures {
- /*   MopokenSelector decides whether the matches between the mopokens resulted in win or loss */
-	
+	/*
+	 * MopokenSelector decides whether the matches between the mopokens resulted in
+	 * win or loss
+	 */
+
 	private BattleNominees nominees;
 
 	public BattleNominees getNominees() {
@@ -18,7 +21,7 @@ public class MopokenSelector implements BattleFixtures {
 	}
 
 	public MopokenSelector() {
-		
+
 	}
 
 	public MopokenSelector(BattleNominees nominees) {
