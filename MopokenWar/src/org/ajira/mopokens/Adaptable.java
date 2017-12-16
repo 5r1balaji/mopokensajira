@@ -5,4 +5,5 @@ public interface Adaptable {
 	 public Mopokens makeDraw(Mopokens player);
 	 public Mopokens getTypeAdvantage(Mopokens player);
 	 public Mopokens match(Mopokens mopoken);
+	 public Mopokens getWeakAdvantage(Mopokens opponent);
 }
