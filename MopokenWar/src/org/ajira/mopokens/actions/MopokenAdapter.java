@@ -1,10 +1,16 @@
-package org.ajira.mopokens;
+package org.ajira.mopokens.actions;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ajira.mopokens.model.Mopokens;
+import org.ajira.mopokens.utils.MopokenStrength;
+
 public class MopokenAdapter implements Adaptable {
+	
+	/* Adapter class adapts the best suited mopokens for each opponent */
+	
 	private MopokenStrength strength;
 	private Map<String, Mopokens> mySquad = new LinkedHashMap<String, Mopokens>();
 	private Mopokens result = null;
@@ -17,7 +23,7 @@ public class MopokenAdapter implements Adaptable {
 	}
 
 	private void setMopokenStrength() {
-		// TODO Auto-generated method stub
+		
 		this.strength = MopokenStrength.getInstance();
 	}
 
@@ -27,6 +33,7 @@ public class MopokenAdapter implements Adaptable {
 		getLevelAdvantage(mopoken);
 		getWeakAdvantage(mopoken);
 		getTypeAdvantage(mopoken);
+		
 		if(!isWin) {
 			makeDraw(mopoken);
 			if (result == null) {
@@ -50,6 +57,9 @@ public class MopokenAdapter implements Adaptable {
 		return result;
 	}
 
+	
+	/* Mopokens which are weak compared to the opponent but still holds advantage over the levels */
+	
 	public void getWeakAdvantage(Mopokens opponent) {
 
 		List<String> oppAdv = this.strength.getMopokenStrength().get(opponent.getName());
@@ -74,7 +84,8 @@ public class MopokenAdapter implements Adaptable {
 		}
 
 	}
-
+	
+	/* Helps choose mopokens that are best suited in their cadre */
 	private void chooseClosestLevel(Mopokens opponent, Mopokens player) {
 
 		if (opponent.getLevel() < player.getLevel()) {
@@ -91,6 +102,8 @@ public class MopokenAdapter implements Adaptable {
 
 	}
 
+	
+	/*  Mopokens that holds advantage on type and levels compared to opponents*/
 	public void getTypeAdvantage(Mopokens opponent) {
 
 		Map<String, Mopokens> mysquad = this.mySquad;
@@ -115,7 +128,8 @@ public class MopokenAdapter implements Adaptable {
 		}
 
 	}
-
+	
+	/*  Mopokens that holds advantage only on levels compared to opponents*/
 	public void getLevelAdvantage(Mopokens opponent) {
 		Map<String, Mopokens> mySquad = this.mySquad;
 		for (Map.Entry<String, Mopokens> s : mySquad.entrySet()) {
@@ -132,7 +146,10 @@ public class MopokenAdapter implements Adaptable {
 			}
 		}
 	}
-
+	
+	
+	
+	/* mopokens that will result in draw as they do not hold advantage on any other mopokens */
 	public void makeDraw(Mopokens opponent) {
 		Map<String, Mopokens> mySquad = this.mySquad;
 		for (Map.Entry<String, Mopokens> s : mySquad.entrySet()) {

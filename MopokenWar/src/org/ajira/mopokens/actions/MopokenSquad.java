@@ -1,20 +1,23 @@
-package org.ajira.mopokens;
+package org.ajira.mopokens.actions;
 
 
 
 
 import java.util.Map;
 
+import org.ajira.mopokens.model.Mopokens;
+
 public class MopokenSquad implements BattleNominees{
 	
+	/* This class allows you to parse the input strings and get the hashmap for opponent and mysquad */
 	
 	public MopokenSquad() {
 		
 	}
 	
 	public MopokenSquad(String myPlayers, String opponents) {
-		parseMopokensList(myPlayers,mySquad);
-		parseMopokensList(opponents,enemySquad);
+		parseMopokensList(myPlayers,breederSquad);
+		parseMopokensList(opponents,opponentSquad);
 	}
 
 	

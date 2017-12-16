@@ -1,4 +1,4 @@
-package org.ajira.mopokens;
+package org.ajira.mopokens.model;
 
 public class Mopokens {
 	private String name;
@@ -20,7 +20,7 @@ public class Mopokens {
 		this.level = level;
 	}
 	public Mopokens() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Mopokens(String name,int level) {

@@ -1,4 +1,4 @@
-package org.ajira.mopokens;
+package org.ajira.mopokens.utils;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 public class MopokenStrength {
+	
+	/* Singleton class keeps the strength of each mopokens as a reference thoroughout */
+	
+	
 	private static MopokenStrength mopokenStrength=null;
 	private  Map<String,List<String>> strength=new LinkedHashMap<String,List<String>>();
 	

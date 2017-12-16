@@ -1,4 +1,6 @@
-package org.ajira.mopokens;
+package org.ajira.mopokens.actions;
+
+import org.ajira.mopokens.model.Mopokens;
 
 public interface Adaptable {
 	public void getLevelAdvantage(Mopokens player);

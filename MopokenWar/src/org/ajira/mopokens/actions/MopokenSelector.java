@@ -1,9 +1,12 @@
-package org.ajira.mopokens;
+package org.ajira.mopokens.actions;
 
 import java.util.Map;
 
-public class MopokenSelector implements BattleFixtures {
+import org.ajira.mopokens.model.Mopokens;
 
+public class MopokenSelector implements BattleFixtures {
+ /*   MopokenSelector decides whether the matches between the mopokens resulted in win or loss */
+	
 	private BattleNominees nominees;
 
 	public BattleNominees getNominees() {
@@ -15,7 +18,7 @@ public class MopokenSelector implements BattleFixtures {
 	}
 
 	public MopokenSelector() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public MopokenSelector(BattleNominees nominees) {
@@ -24,8 +27,8 @@ public class MopokenSelector implements BattleFixtures {
 
 	@Override
 	public void organizeMopokens() {
-		Map<String, Mopokens> opponents = BattleNominees.enemySquad;
-		Adaptable adapt = new MopokenAdapter(BattleNominees.mySquad);
+		Map<String, Mopokens> opponents = BattleNominees.opponentSquad;
+		Adaptable adapt = new MopokenAdapter(BattleNominees.breederSquad);
 		for (Map.Entry<String, Mopokens> m : opponents.entrySet()) {
 			Mopokens myMopoken = adapt.match(m.getValue());
 			fights.put(m.getValue(), myMopoken);
@@ -52,7 +55,6 @@ public class MopokenSelector implements BattleFixtures {
 
 		for (Map.Entry<Mopokens, Mopokens> m : fights.entrySet()) {
 			output = output + m.getValue().getName() + "#" + m.getValue().getLevel() + ";";
-			// output=output+m.getKey().getName()+m.getKey().getLevel()+":"+m.getValue().getName()+m.getValue().getLevel()+"\n";
 		}
 		System.out.println(output);
 	}
