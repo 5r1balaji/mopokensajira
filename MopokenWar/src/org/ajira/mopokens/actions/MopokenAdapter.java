@@ -40,7 +40,6 @@ public class MopokenAdapter implements Adaptable {
 				Map<String, Mopokens> mySquad = this.mySquad;
 				for (Map.Entry<String, Mopokens> s : mySquad.entrySet()) {
 					result = s.getValue();
-					System.out.println(mopoken.getName() + "won against " + result.getName());
 					break;
 				}
 			}
