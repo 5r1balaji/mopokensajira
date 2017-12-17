@@ -1,6 +1,5 @@
 package org.ajira.mopokens.actions;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,13 +11,13 @@ public class MopokenAdapter implements Adaptable {
 	/* Adapter class adapts the best suited mopokens for each opponent */
 
 	private MopokenStrength strength;
-	private Map<String, Mopokens> mySquad = new LinkedHashMap<String, Mopokens>();
+	private Map<String, Mopokens> mySquad;
 	private Mopokens result = null;
 	public static int deciderCount = 0;
 	public boolean isWin = false;
 
-	public MopokenAdapter(Map<String, Mopokens> opponents) {
-		this.mySquad = opponents;
+	public MopokenAdapter(Map<String, Mopokens> breeder) {
+		this.mySquad = breeder;
 		this.setMopokenStrength();
 	}
 
